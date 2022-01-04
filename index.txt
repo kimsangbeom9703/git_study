@@ -130,3 +130,27 @@
 			-	깃으로 버전 관리를 시작하면 master 라는 브랜치가 만들어진다. 사용자가 커밋할 때마다 master 브랜치는 최신 커밋을 가리킨다 브랜치는 커밋을 가리키는 포인터와 비슷하다고 본다.
 			-	master 브랜치에서 뻗어 나오는 새 브랜치를 분기 라고 한다.
 			-	새 분기에서 작업을 했으면 브런치에 있던 파일을 원래 master 브랜치에 합칠 수 있는데 그것을 병합(merge) 라고 한다.
+
+		2. 브랜치 만들기
+
+			1. git branch "브랜치명"
+				ex) git branch apple			
+				1-1. 브랜치 생성 확인 git branch 명령어 로 확인할 수 있다.
+				ex)
+					$ git branch
+					apple
+					* master
+				master 앞에 * 표시는 현재 master 브랜치 에서 작업하고 있다는 뜻이다.
+				브랜치가 추가된 후에는 git log 도 다르게 나온다.
+				ex)
+				$ git log
+				commit "커밋해시" (HEAD -> master, apple)
+				저장소에 master 과 apple 가 있다는 뜻이고 HEAD->master 이므로 현재 작업중인 브랜치는 master 이라는 뜻이다.
+
+		3. 브랜치 사이 이동하기
+			
+			1. git checkout
+
+
+			* git log --oneline 한줄에 한 커밋씩 간략하게 확인
+
