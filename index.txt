@@ -1,0 +1,121 @@
+
+깃허브 시작하기
+
+	학습 목표  : 모든 문서 깃으로 관리하기.
+	학습 이유  : 더욱 열심히 공부해보자.
+	작성자 : 김상범
+
+
+1. 환경 설정하기
+	처음 깃 을 설치후 내가 누구인지 를 설정 해줘야된다.
+	
+	git config --global user.name "이름"
+	git config --global user.email "이메일"
+
+	- 현재 config 확인
+		
+		git config --list
+
+	- config 삭제
+		
+		git config --unset user.name
+		git config --unset user.email
+
+		글로벌로 설정시
+		
+		git config --unset --global user.name
+		git config --unset --global user.email
+	
+
+2. 버전 만들기
+	스테이지와 커밋 이해하기 (깃 버전 만드는 단계)
+
+	작업트리 , 스테이지 , 저장소 (리포지토리)
+
+		작업트리 : 작업디렉터리 라고도 하고 현재 눈에 보이는 폴더를 작업트리라고 한다.
+
+		스테이지 : 버전으로 만들 파일이 대기 하는 곳 ex) 작업트리에서 2개의 파일을 수정 했는데 1개만 버전으로 만드려면 1개만 스테이지에 넘겨주면 된다
+
+		저장소   : 버전으로 만들어서 저장하는 곳.
+		
+
+	1. git status
+		현재 상태를 확인
+	2. vi text.txt
+		테스트 파일 생성
+	3. git add text.txt
+		스테이지 로 이동
+	4. git commit -m '메세지'
+		커밋 
+	5. git status 
+		확인
+	6. git log
+		로그 확인
+
+	기본적인 순서고 중간 중간 git status 를 입력하여 상태를 확인한다.
+
+	스테이징과 커밋 한꺼번에 처리하기
+		git commit -am "메세지"
+
+
+3. 커밋 내용 확인하기
+	git diff (변경사항 확인하기)
+		커밋한 파일을 수정후 git status 를 입력하면 modified 로 어떤 파일이 수정 되었는지 나온다.
+
+		최신 저장소에 있는 내용과 현재 파일이 다른지 확인하는 명령어
+
+		git diff
+
+4. 버전 만드는 단계마다 파일 상태 확인하기
+	tracked 파일과 untracked 파일
+		말대로 추적하고 있는 파일과 아닌 파일인데 깃은 한번이라도 커밋한 파일은 수정여부를 추적하고 있어 tracked 파일 이라고 하고
+		버전관리를 하지 않은 파일은 untracked 파일 이라고 한다.
+	
+	커밋에 관련된 파일 까지 함께 보려면 git log --stat 를 입력한다.
+
+	방금 커밋한 메세지 수정하기
+	git commit --amend
+
+
+* 중간 정리 
+	파일 상태 변화 
+		untracked  -> unmodified -> modified -> staged 
+		-------------------스테이징-------------------->
+		                   --------파일수정---->
+										-----스테이징-->
+						<----------------커밋-----------
+	한번에 커밋하기
+		git commit -am "메세지" 사용하면 될듯하다.
+
+6. 작업 되돌리기
+	1.	가장 최신 버전으로 되돌리기 (스테이징 전)
+		git checkout -- 파일
+	
+	2.	스테이징 되돌리기
+		git reset HEAD 파일
+
+		파일 수정 후 git add 후 스테이징에 올린걸 되돌린다.
+		확인 : git status
+
+	* 깃 버전 2.23 부터 작업 되돌리기 명령어가 변경 되었다.
+		가장 최신 버전으로 되돌리기
+			ex ) git checkout -- test.txt ==> git restore test.txt
+		스테이징 되돌리기
+			ex ) git reset HEAD test.txt ==> git restore --staged test.txt
+	
+	3.	최신 커밋 되돌리기
+		git reset HEAD^
+
+	4.	특정 커밋으로 되돌리기
+		git reset --hard 커밋해시
+		커밋 후 git log 를 입력 하면 커밋 해시를 구할 수 있다.
+
+		/**	reset 명령어 옵션	**/
+			--soft HEAD^  : 최근 커밋을 하기 전 상태로 작업 트리를 되돌립니다.
+			--mixed HEAD^ : 최근 커밋과 스테이징을 하기 전 상태로 작업트리를 되돌립니다. 옵션없이 git reset 명령을 사용 할 경우 이 옵션이 기본.
+			--hard HEAD^  : 최근 커밋과 스테이징, 파일 수정을 하기 전 상태로 작업트리를 되돌립니다. 이옵션으로 되돌린 내용은 복구할 수 없다.
+	
+	5.	커밋 삭제하지 않고 되돌리기
+		git revert 커밋해시
+
+2022-01-03
