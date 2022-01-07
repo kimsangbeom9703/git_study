@@ -196,4 +196,32 @@
 				-	vi test.txt / master 브랜치에서 파일 선 수정
 				-	git branch test / test 라는 새로운 브랜치 생성
 				-	git checkout test / test 라는 브랜치로 이동
-				- 	vi test.txt / test 브랜치에서 파일 후 수정
+				-	vi test.txt / test 브랜치에서 파일 후 수정
+				-	git checkout master / master 브랜치로 이동
+				-	git merge test / 병합
+
+			3. 같은 문서의 같은 위치를 수정했을 때 병합하기
+				-	vi test.txt / 파일 생성
+				-	git add -> git commit -m "test파일 생성" / 커밋
+				-	vi test.txt / master 브랜치에서 파일 선 수정
+				-	git branch test / test 라는 새로운 브랜치 생성
+				-	git checkout test / test 라는 브랜치로 이동
+				-	vi test.txt / test 브랜치에서 같은 위치 내용 수정 
+				-	git checkout master / master 브랜치로 이동
+				-	git merge test / 병합		
+				-   이전에 병합 했을 때 처럼 편집기가 열리지않고 에러 문구가 나온다.
+					자동 병합하는 동안 충돌이 났다는 뜻이다.		
+					충돌이 생긴 문서는 직접 편집 해줘야된다.
+					vi test.txt 후 파일 내용을 보면
+					<<<<<<<<<<<HEAD , >>>>>>>>>>>>>test 부분이 있는데 문서를 수정한후 지워줘야된다.
+					저장 후 다시 git commit -am "충돌부분 해결" 하고 커밋하면 된다.
+			
+			4. 병합이 끝난 브랜치 삭제하기
+				-	git branch  / 브랜치 확인
+				-	git checkout master / 기본 브랜치는 master 이므로 삭제는 master 에서 해야된다.
+				-	git branch -d test / test 브랜치를 삭제하기 위해서는 -d 옵션을 사용한다.
+					
+					*	브랜치 삭제후 다시 test 브랜치를 생성하면  예전에 작업했던 내용들이 그대로 나타난다.
+						브랜치를 삭제하는것은 잠시 숨겨두는거라고 생각하면 된다.
+
+			
