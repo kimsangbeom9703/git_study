@@ -178,6 +178,22 @@
 			1. git log "기준점브랜치".."비교브랜치"	왼쪽 브랜치 기준으로 오른쪽 브랜치를 비교해서 알려준다.
 
 2022-01-07
-		
+
 		6.	브랜치 병합하기
-		
+			- 만들어진 브랜치에서 작업을 하다가 어느 시점에서는 작업을 마무리 하고 기존 master 브랜치에 병합하는 경우가 생긴다.
+
+			1. 서로 다른 파일 병합하기
+				-	git branch test / test 라는 새로운 브랜치 생성
+				-	git checkout test / test 브랜치로 이동
+				-	vi test.txt / 파일 생성
+				-	git add -> git commit -m "test파일 생성" / 커밋
+				-	git checkout master / 병합을 위해 마스터 브랜치로 이동.
+				-	git merge test  / 마스터 브랜치에 test 브랜치를 가져와서 병합하기.
+
+			2. 같은 문서의 다른위치를 수정했을 때 병합하기
+				-	vi test.txt / 파일 생성
+				-	git add -> git commit -m "test파일 생성" / 커밋
+				-	vi test.txt / master 브랜치에서 파일 선 수정
+				-	git branch test / test 라는 새로운 브랜치 생성
+				-	git checkout test / test 라는 브랜치로 이동
+				- 	vi test.txt / test 브랜치에서 파일 후 수정
