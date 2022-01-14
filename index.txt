@@ -270,10 +270,20 @@
 			
 			2.	원격 저장소에 올리기 및 내려받기.
 				
-				-	원격 저장소에 올리는 것을 push 라고 하고 내려받는 것은 pull 이라고 한다.
+				2-1.	올리기
+						-	원격 저장소에 올리는 것을 push 라고 하고 내려받는 것은 pull 이라고 한다.
 
-				-	git push -u origin master / 지역 저장소의 origin 브랜치를 원격 저장소의 master 브랜치로 푸시해라
-					-u 옵션은 기본 한번만.
+						-	git push -u origin master / 지역 저장소의 master 브랜치를 원격 저장소의 origin 브랜치로 푸시해라
+							-u 옵션은 기본 한번만.
 
-					다음 커밋 부터는 git push 만 입력하면 된다.
+							다음 커밋 부터는 git push 만 입력하면 된다.
+
+						-	원격 저장소에서 직접 커밋하기
+							file 에서 Create new file or Upload files 
 				
+				2-2.	내려받기
+						-	git pull origin master / 원격 저장소의 origin 을 master 브랜치로 가져온다.
+						-	git log 입력 후 확인해보면 정상적으로 Create test.txt 파일을 가져온것을 확인 할 수 있다.
+			
+			3. 깃허브에 ssh 접속하기
+			
