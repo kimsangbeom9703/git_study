@@ -225,3 +225,25 @@
 						브랜치를 삭제하는것은 잠시 숨겨두는거라고 생각하면 된다.
 
 		7. 브랜치 관리하기
+2022-01-14
+			-	책을 한번 다 살펴보고 다시 확인하자.
+			1. git checkout  
+				-	생성한 브랜치로 이동하는 명령어
+					ex) git branch test  후 git checkout test
+			2. git reset
+				-	특정 커밋으로 되돌린다.
+					ex) git log 후 git reset 커밋해시
+			3.	git stash
+				-	수정중인 파일 감추기 및 되돌리기
+					파일을 수정하고 있는 도중 급하게 다른 파일을 수정해서 커밋해야 할 경우 사용한다. 
+					ex) git status 를 입력하면 modified  에 수정중인 파일 이름이 나온다.
+					그 다음 git stash  를 입력하면 수정전 상태로 돌아간다.
+					감춰둔 파일을 확인 하는 명령어는 git stash list 이고 스택형식으로 쌓인다.
+					급한 작업을 마무리 한 후 감춰둔 파일을 꺼내오는 명령어는 git stash pop  이다 git stash 하기 전으로 돌아온다.
+					
+
+
+
+
+
+		
