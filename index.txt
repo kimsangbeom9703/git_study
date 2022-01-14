@@ -273,4 +273,7 @@
 				-	원격 저장소에 올리는 것을 push 라고 하고 내려받는 것은 pull 이라고 한다.
 
 				-	git push -u origin master / 지역 저장소의 origin 브랜치를 원격 저장소의 master 브랜치로 푸시해라
+					-u 옵션은 기본 한번만.
+
+					다음 커밋 부터는 git push 만 입력하면 된다.
 				
