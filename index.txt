@@ -285,5 +285,8 @@
 						-	git pull origin master / 원격 저장소의 origin 을 master 브랜치로 가져온다.
 						-	git log 입력 후 확인해보면 정상적으로 Create test.txt 파일을 가져온것을 확인 할 수 있다.
 			
+	2022-01-18			
+
 			3. 깃허브에 ssh 접속하기
+			
 			
