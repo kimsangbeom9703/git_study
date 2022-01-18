@@ -315,4 +315,68 @@
 
 	8.깃허브로 협업하기
 
-		- 깃허브의 장점인 협업 하는 방법을 알아보자.!!
+		-	깃허브의 장점인 협업 하는 방법을 알아보자!!
+			여러 컴퓨터에서 원격 저장소 함께 사용하기.
+			모두 하나의 깃허브 계정으로 둘 이상의 컴퓨터에서 원격 저장소를 공유해 버전관리 방법입니다.
+
+		1. 원격 저장소 복제하기
+			
+			-	git clone
+				원격 저장소를 기존에 연결된 지역 저장소 외에 다른 지역 저장소에서 사용하려면 원격 저장소에 담긴 내용을 전체 지역 저장소로 가져와야 한다. 
+				원격 저장소 내용을 똑같이 가져오는것을 클론 또는 클로닝 이라 한다.
+
+			1-1. git clone "원격저장소 주소"  "폴더명"
+
+				ex) 회사와 집에서 환경을 구성하기 위해 git_office 와 git_home 라는 폴더를 각각 복제했음.
+				폴더를 들어가서 git log , git remote -v 를 입력하면 로그와 연결이 되어있는게 확인된다.
+
+				처음은 git_office 폴더에서 커밋 후 푸쉬하고
+				두번째 git_home 폴더에서 git pull 로 내려받은 후 커밋 후 푸쉬하면
+				원격 저장소에서 두개의 커밋을 확인 할 수 있다.
+				
+				* 하나의 원격 저장소에 둘 이상의 컴퓨터를 사용한다면 git pull , git push 를 습관화 하자.
+
+				Q) 궁금한 내용: git_office 에서 커밋 후 푸쉬하고 git_home 에서는 pull 하지않고 업로드한다면??
+					A)
+						$ git push
+						To "깃주소"
+						! [rejected]        master -> master (fetch first)
+						error: failed to push some refs to "깃주소"
+						hint: Updates were rejected because the remote contains work that you do
+						hint: not have locally. This is usually caused by another repository pushing
+						hint: to the same ref. You may want to first integrate the remote changes
+						hint: (e.g., 'git pull ...') before pushing again.
+						hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+					// 간단하게 번역하자면 원격 저장소에 내용이 바뀌었고 로컬과 맞지 않는단 것이다.
+					한가지 의문점은 위에를 보면 다른 브런치에서 같은 부분을 수정하면 변경할 수 있었는데 같은 master 브런치라 그런지 모르겠다
+					궁금하다면?? 또 시도 해보자.
+
+					※ git home 에서 다시 처음부터 하기 위하여 git pull 을 하고 수정하려고 하니 브런치가 달랐을때처럼 나눠져있다.
+						git clone test example
+						git_home 에서 추가 했습니다.
+						<<<<<<< HEAD
+						git_home 에서 뒤늦게 같은자리 추가
+						=======
+						git_office 에서 추가 했습니다.
+						궁금증 테스트입니다..
+						>>>>>>> 2e0260d484104dfd2f1e22eb5c552acdd503cbbc
+
+						하고 다시 commit 후 올리니 정상적으로 작동함.
+					
+					※  다른 브런치 생성후 
+						git pull 로 내려받고 , 문서를 수정한 후 커밋 , 그리고 push 하니 test 라는 브랜치에서 따로 올린것이 확인 되었다.
+						나중에 병합하기 위해서 master 브런치로 이동후 git pull 을 하니 test 에서 수정한 내용과 함께 합쳐져 내려왔다.
+						git clone test example
+						git_home 에서 추가 했습니다.
+						git_home 에서 뒤늦게 같은자리 추가
+						git_test
+						<<<<<<< HEAD
+						test 브랜치 에서 추가
+						=======
+						git_master 브랜치
+						>>>>>>> 2c8e5ff439b7afb8d86038d2808efb284d2cfc60
+
+
+
+				
+
